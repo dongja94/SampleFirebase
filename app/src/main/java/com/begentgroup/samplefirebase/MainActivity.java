@@ -16,7 +16,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new AsyncTask<Void,Void,Void>() {
+
+        Button btn = (Button)findViewById(R.id.btn_subs);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ContextCompat.getNoBackupFilesDir(MainActivity.this);
+                FirebaseMessaging.getInstance().subscribeToTopic("news");
+            }
+        });
+        if (PropertyManager.getInstance().getRegistrationToken().equals("")) {
+            registerToken();
+        } else {
+            doRealStart();
+        }
+    }
+
+    private void registerToken() {
+        new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
                 String refreshedToken = FirebaseInstanceId.getInstance().getToken();
@@ -27,16 +44,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-
+                doRealStart();
             }
         }.execute();
-        Button btn = (Button)findViewById(R.id.btn_subs);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ContextCompat.getNoBackupFilesDir(MainActivity.this);
-                FirebaseMessaging.getInstance().subscribeToTopic("news");
-            }
-        });
+    }
+
+    private void doRealStart() {
+
     }
 }
