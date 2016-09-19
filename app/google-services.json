@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "18110459613",
+    "firebase_url": "https://dongjafirebasesample.firebaseio.com",
+    "project_id": "dongjafirebasesample",
+    "storage_bucket": "dongjafirebasesample.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18110459613:android:2615e05f43c541c5",
+        "android_client_info": {
+          "package_name": "com.begentgroup.samplefirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18110459613-gbagbokqsq3ai81ia8tdljmgt1k5auvl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2i61ema7fmDd2P-AVPxI6Wt2xkb5mGnM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
